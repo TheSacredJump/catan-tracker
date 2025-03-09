@@ -4,10 +4,12 @@ import React, { useEffect, useState } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { BarChart3, BookOpen, Users, LogOut, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BarChart3, BookOpen, Users, LogOut, ChevronLeft, ChevronRight, ChartLine, ChartNoAxesColumn } from 'lucide-react';
 import Leaderboard from '@/components/Leaderboard';
 import Games from '@/components/games';
 import Compare from '@/components/Compare';
+import Groups from '@/components/Groups';
+
 const Dashboard = () => {
   const router = useRouter();
   const supabase = createClientComponentClient();
@@ -83,6 +85,8 @@ const Dashboard = () => {
         return <Games />;
       case 'compare':
         return <Compare />;
+      case 'groups':
+        return <Groups />;
       default:
         return <div className="p-6"><h2 className="text-2xl font-bold mb-4">Games</h2><p>Games history will appear here</p></div>;
     }
@@ -135,7 +139,7 @@ const Dashboard = () => {
                 onClick={() => setActiveTab('leaderboard')}
                 className={`w-full flex items-center p-3 rounded-md transition-colors ${activeTab === 'leaderboard' ? 'bg-white/20' : 'hover:bg-white/10'}`}
               >
-                <BarChart3 className="h-6 w-6" />
+                <ChartNoAxesColumn className="h-6 w-6" />
                 {isSidebarOpen && <span className="ml-3 zilla-slab-medium">Leaderboard</span>}
               </button>
             </li>
@@ -144,8 +148,17 @@ const Dashboard = () => {
                 onClick={() => setActiveTab('compare')}
                 className={`w-full flex items-center p-3 rounded-md transition-colors ${activeTab === 'compare' ? 'bg-white/20' : 'hover:bg-white/10'}`}
               >
-                <Users className="h-6 w-6" />
+                <ChartLine className="h-6 w-6" />
                 {isSidebarOpen && <span className="ml-3 zilla-slab-medium">Compare</span>}
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => setActiveTab('groups')}
+                className={`w-full flex items-center p-3 rounded-md transition-colors ${activeTab === 'groups' ? 'bg-white/20' : 'hover:bg-white/10'}`}
+              >
+                <Users className="h-6 w-6" />
+                {isSidebarOpen && <span className="ml-3 zilla-slab-medium">Groups</span>}
               </button>
             </li>
           </ul>

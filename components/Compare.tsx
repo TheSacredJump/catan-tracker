@@ -170,10 +170,10 @@ const ComparePlayers = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Compare Players</h1>
+      <h1 className="text-3xl font-bold mb-6 zilla-slab-bold">Compare Players</h1>
       <div className="flex flex-col md:flex-row md:space-x-8">
         <div className="flex-1 mb-6 md:mb-0">
-          <h2 className="text-xl font-semibold mb-2">Player 1</h2>
+          <h2 className="text-xl font-semibold mb-2 zilla-slab-bold">Player 1</h2>
           <div className="flex gap-2">
             <input 
               type="text"
@@ -210,7 +210,7 @@ const ComparePlayers = () => {
         </div>
 
         <div className="flex-1">
-          <h2 className="text-xl font-semibold mb-2">Player 2</h2>
+          <h2 className="text-xl font-semibold mb-2 zilla-slab-bold">Player 2</h2>
           <div className="flex gap-2">
             <input 
               type="text"
@@ -249,7 +249,7 @@ const ComparePlayers = () => {
 
       {selectedPlayer1 && selectedPlayer2 && (
         <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">Comparison</h2>
+          <h2 className="text-2xl font-bold mb-4 zilla-slab-bold">Comparison</h2>
           
           {/* Chart Visualization */}
           <div className="mb-8 p-4 bg-white rounded-lg shadow-md border-2 flex justify-center">
