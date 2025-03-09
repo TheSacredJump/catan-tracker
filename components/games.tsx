@@ -327,9 +327,11 @@ const Games: React.FC = () => {
           console.error('Error updating game completion:', gameError);
           throw gameError;
         }
-        
+
+        await fetchGames();
+
         closeStatsModal();
-        alert("Game recorded successfully!");
+
       } catch (error) {
         console.error('Error submitting game:', error);
         alert("Failed to submit game. Please try again.");
@@ -533,16 +535,22 @@ const Games: React.FC = () => {
 
       if (gamesError) throw gamesError;
 
-      // Transform the data into a more usable format
-      const formattedGames = gamesData.map(game => ({
-        id: game.id,
-        completed_at: game.completed_at,
-        players: game.player_game_stats.map((stat: any) => ({
+      const formattedGames = gamesData.map(game => {
+        const players = game.player_game_stats.map((stat: any) => ({
           player_name: stat.players.name,
           is_winner: stat.is_winner,
           points: stat.points
-        }))
-      }));
+        }));
+      
+        players.sort((a, b) => (a.is_winner === b.is_winner ? 0 : a.is_winner ? -1 : 1));
+      
+        return {
+          id: game.id,
+          completed_at: game.completed_at,
+          players
+        };
+      });
+      
 
       setGames(formattedGames);
     } catch (error) {

@@ -83,16 +83,16 @@ const Leaderboard = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
+          <table className="w-full table-fixed border-collapse">
             <thead>
               <tr className="bg-neutral-100 text-neutral-700">
-                <th className="p-3 text-left font-semibold border-b">Rank</th>
-                <th className="p-3 text-left font-semibold border-b">Player</th>
+                <th className="p-3 text-left font-semibold border-b whitespace-normal break-words">Rank</th>
+                <th className="p-3 text-left font-semibold border-b whitespace-normal break-words">Player</th>
                 <th 
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('games_played')}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center whitespace-normal break-words">
                     Games
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
@@ -101,7 +101,7 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('win_percentage')}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center whitespace-normal break-words">
                     Win %
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
@@ -110,8 +110,8 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('points_per_game')}
                 >
-                  <div className="flex items-center">
-                    Points/Game
+                  <div className="flex items-center whitespace-normal break-words">
+                    Points Per Game
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
                 </th>
@@ -119,8 +119,8 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('roads_per_game')}
                 >
-                  <div className="flex items-center">
-                    Roads/Game
+                  <div className="flex items-center whitespace-normal break-words">
+                    Roads Per Game
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
                 </th>
@@ -128,8 +128,8 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('settlements_per_game')}
                 >
-                  <div className="flex items-center">
-                    Settlements/Game
+                  <div className="flex items-center whitespace-normal break-words">
+                    Settlements Per Game
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
                 </th>
@@ -137,8 +137,8 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('cities_per_game')}
                 >
-                  <div className="flex items-center">
-                    Cities/Game
+                  <div className="flex items-center whitespace-normal break-words">
+                    Cities Per Game
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
                 </th>
@@ -146,8 +146,8 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('dev_cards_per_game')}
                 >
-                  <div className="flex items-center">
-                    Dev Cards/Game
+                  <div className="flex items-center whitespace-normal break-words">
+                    Dev Cards Per Game
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
                 </th>
@@ -155,7 +155,7 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('largest_army_count')}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center whitespace-normal break-words">
                     Largest Army
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
@@ -164,7 +164,7 @@ const Leaderboard = () => {
                   className="p-3 text-left font-semibold border-b cursor-pointer"
                   onClick={() => handleSort('longest_road_count')}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center whitespace-normal break-words">
                     Longest Road
                     <ArrowUpDown className="ml-1 h-4 w-4" />
                   </div>
@@ -177,10 +177,10 @@ const Leaderboard = () => {
                   key={player.id} 
                   className={`border-b hover:bg-neutral-50 ${index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}`}
                 >
-                  <td className="p-3 font-medium">{index + 1}</td>
-                  <td className="p-3 font-medium">{player.name}</td>
+                  <td className="p-3 font-medium ">{index + 1}</td>
+                  <td className="p-3 font-medium overflow-hidden break-words">{player.name}</td>
                   <td className="p-3">{player.games_played}</td>
-                  <td className="p-3">{(player.win_percentage * 100).toFixed(1)}%</td>
+                  <td className="p-3">{(player.win_percentage).toFixed(1)}%</td>
                   <td className="p-3">{player.points_per_game.toFixed(1)}</td>
                   <td className="p-3">{player.roads_per_game.toFixed(1)}</td>
                   <td className="p-3">{player.settlements_per_game.toFixed(1)}</td>

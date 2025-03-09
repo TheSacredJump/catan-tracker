@@ -277,8 +277,8 @@ const ComparePlayers = () => {
               </tr>
               <tr>
                 <td className="p-2 border">Win Percentage</td>
-                <td className="p-2 border">{selectedPlayer1.win_percentage}</td>
-                <td className="p-2 border">{selectedPlayer2.win_percentage}</td>
+                <td className="p-2 border">{selectedPlayer1.win_percentage}%</td>
+                <td className="p-2 border">{selectedPlayer2.win_percentage}%</td>
               </tr>
               <tr>
                 <td className="p-2 border">Points per Game</td>
